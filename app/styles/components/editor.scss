@@ -112,11 +112,7 @@
   --cm-searchMatch-backgroundColor: var(--bolt-elements-editor-searchMatch-backgroundColor, rgba(234, 92, 0, 0.33));
 
   &[data-selected='true'] {
-    background: linear-gradient(
-      to right,
-      theme('colors.alpha.gray.30'),
-      transparent
-    );
+    background: linear-gradient(to right, theme('colors.alpha.gray.30'), transparent);
   }
 }
 

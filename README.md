@@ -20,6 +20,7 @@ Welcome to asap.it, an AI-powered full-stack web development platform that lets 
 2. Clone the repository
 3. Rename `.env.example` to `.env.local` and add your LLM API keys
 4. Install dependencies:
+
 ```bash
 pnpm install
 ```
@@ -27,6 +28,7 @@ pnpm install
 ## Development
 
 Run the development server:
+
 ```bash
 pnpm run dev
 ```
@@ -34,6 +36,7 @@ pnpm run dev
 ## Docker Support
 
 Build and run with Docker:
+
 ```bash
 # Development
 npm run dockerbuild
@@ -47,6 +50,7 @@ docker-compose --profile production up
 ## Environment Variables
 
 Required (set only the ones you plan to use):
+
 ```
 GROQ_API_KEY=XXX
 OPENAI_API_KEY=XXX
@@ -54,7 +58,9 @@ ANTHROPIC_API_KEY=XXX
 ```
 
 Optional:
+
 ```
 VITE_LOG_LEVEL=debug
 OLLAMA_API_BASE_URL=http://localhost:11434
 DEFAULT_NUM_CTX=8192
+```

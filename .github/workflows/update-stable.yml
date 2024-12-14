@@ -7,35 +7,35 @@ on:
 
 permissions:
   contents: write
-  
+
 jobs:
   update-commit:
     if: contains(github.event.head_commit.message, '#release')
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the code
-      uses: actions/checkout@v3
-      
-    - name: Get the latest commit hash
-      run: echo "COMMIT_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+      - name: Checkout the code
+        uses: actions/checkout@v3
 
-    - name: Update commit file
-      run: |
-        echo "{ \"commit\": \"$COMMIT_HASH\" }" > app/commit.json
+      - name: Get the latest commit hash
+        run: echo "COMMIT_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
-    - name: Commit and push the update
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add app/commit.json
-        git commit -m "chore: update commit hash to $COMMIT_HASH"
-        git push
+      - name: Update commit file
+        run: |
+          echo "{ \"commit\": \"$COMMIT_HASH\" }" > app/commit.json
+
+      - name: Commit and push the update
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add app/commit.json
+          git commit -m "chore: update commit hash to $COMMIT_HASH"
+          git push
   prepare-release:
     needs: update-commit
     if: contains(github.event.head_commit.message, '#release')
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -108,11 +108,11 @@ jobs:
         run: |
           # Get the latest tag
           LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          
+
           # Start changelog file
           echo "# Release v${{ steps.bump_version.outputs.new_version }}" > changelog.md
           echo "" >> changelog.md
-          
+
           if [ -z "$LATEST_TAG" ]; then
             echo "### 🎉 First Release" >> changelog.md
             echo "" >> changelog.md
@@ -122,7 +122,7 @@ jobs:
             echo "" >> changelog.md
             COMPARE_BASE="$LATEST_TAG"
           fi
-          
+
           # Function to extract conventional commit type
           get_commit_type() {
             if [[ $1 =~ ^feat:|^feature: ]]; then echo "✨ Features"; 
@@ -138,11 +138,11 @@ jobs:
             else echo "🔍 Other Changes";
             fi
           }
-          
+
           # Generate categorized changelog
           declare -A CATEGORIES
           declare -A COMMITS_BY_CATEGORY
-          
+
           # Get commits since last tag or all commits if no tag exists
           while IFS= read -r commit_line; do
             HASH=$(echo "$commit_line" | cut -d'|' -f1)
@@ -159,7 +159,7 @@ jobs:
               COMMITS_BY_CATEGORY["$CATEGORY"]+="- ${MSG#*: }"$'\n'
             fi
           done < <(git log "${COMPARE_BASE}..HEAD" --pretty=format:"%H|%s|%(trailers:key=PR-Number,valueonly)" --reverse)
-          
+
           # Write categorized commits to changelog
           for category in "✨ Features" "🐛 Bug Fixes" "📚 Documentation" "💎 Styles" "♻️ Code Refactoring" "⚡️ Performance Improvements" "✅ Tests" "🛠️ Build System" "⚙️ CI" "🔧 Chores" "🔍 Other Changes"; do
             if [ -n "${COMMITS_BY_CATEGORY[$category]}" ]; then
@@ -169,12 +169,12 @@ jobs:
               echo "" >> changelog.md
             fi
           done
-          
+
           # Add compare link if not first release
           if [ -n "$LATEST_TAG" ]; then
             echo "**Full Changelog**: [\`$LATEST_TAG..v${{ steps.bump_version.outputs.new_version }}\`](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/$LATEST_TAG...v${{ steps.bump_version.outputs.new_version }})" >> changelog.md
           fi
-          
+
           # Save changelog content for the release
           CHANGELOG_CONTENT=$(cat changelog.md)
           echo "content<<EOF" >> $GITHUB_OUTPUT

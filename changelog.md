@@ -38,14 +38,13 @@
 - added sync files to selected local folder function is created. Yarn package manager fixes, styling fixes. Sass module fix. Added Claude model for open router.
 - add ability to enter API keys in the UI
 - added bolt dedicated shell
-- hyperlinked on "Start application"  actionto switch to preview in workbench
+- hyperlinked on "Start application" actionto switch to preview in workbench
 - add custom unique filename when doanload as zip
 - add Together AI integration and provider implementation guide
 - better prompt enhancement
 - prompt caching
 - search chats
 - Connections Tabs
-
 
 #### 🐛 Bug Fixes
 
@@ -84,7 +83,7 @@
 - working
 - Resolved
 - adds missing -t for dockerbuild:prod command in package.json
-- bug  #245
+- bug #245
 - added scroll fix for file browser
 - global execution queue added
 - enhance prompt "Invalid or missing provider" bad request error
@@ -105,7 +104,6 @@
 - re-capitalize "NEW"
 - dev command
 
-
 #### 📚 Documentation
 
 - fix typo in CONTRIBUTING.md (#158)
@@ -114,20 +112,17 @@
 - add link to bolt.new issue tracker
 - added socials
 
-
 #### ♻️ Code Refactoring
 
 - workbench store and move logic into action runner (#4)
 - improve history item hover states and interactions
 - settinge menu refactored with useSettings hook
 
-
 #### ⚙️ CI
 
 - use correct versions (#2)
 - deploy to cloudflare (#19)
 - remove deployment workflow
-
 
 #### 🔧 Chores
 
@@ -208,7 +203,6 @@
 - update commit hash to b4104962b7c33202f004bcd05ed75d29c641f014
 - adding workflow
 - update commit hash to 6cb536a9a32e04b4ebc1f3788d6fae06c5bce5ac
-
 
 #### 🔍 Other Changes
 
@@ -328,7 +322,7 @@
 - Corrected nixpacks.toml filename
 - Merge pull request #70 from ArulGandhi/main
 - Corrected nixpacks.toml filename
-- Merge branch 'add-docker-support' of github.com:hillct/bolt.new-any-llm into add-docker-support  Just a little cleanup... nixpax.toml is no more. Embedding Coolify config in Dockerfile and docker-compose.yaml
+- Merge branch 'add-docker-support' of github.com:hillct/bolt.new-any-llm into add-docker-support Just a little cleanup... nixpax.toml is no more. Embedding Coolify config in Dockerfile and docker-compose.yaml
 - Adding hints for Coolify config into docker-compose.yaml
 - Adding full suffix o cocker-compose.yaml for ompatibiliy
 - Merge branch 'main' into add-docker-support
@@ -467,7 +461,7 @@
 - fixes for PR #332
 - .
 - model pickup
-- Update stream-text.ts dynamic model max  Token updated
+- Update stream-text.ts dynamic model max Token updated
 - Merge pull request #351 from hasanraiyan/main
 - mobile friendly
 - mobile friendly editor scrollable option buttons
@@ -530,7 +524,7 @@
 - artifact actionlist rendering in chat
 - add prompt caching to README
 - upload new files
--  added faq
+- added faq
 - Merge branch 'main' into docs
 - updated name
 - pipeline fix
@@ -697,7 +691,7 @@
 - Merge branch 'main' into Folder-import-refinement
 - add vue support for codemirror
 - Merge branch 'main' into ui-background-rays
-- background rays  and changed the theme color to purple
+- background rays and changed the theme color to purple
 - updated theme color
 - Merge pull request #580 from oTToDev-CE/feat/add-tabbed-setting-modal
 - Merge branch 'coleam00:main' into ui/model-dropdown
@@ -804,5 +798,3 @@
 - Merge pull request #697 from thecodacus/update-socials
 - Merge pull request #701 from thecodacus/auto-versioning #release
 - skipping commit version
-
-
