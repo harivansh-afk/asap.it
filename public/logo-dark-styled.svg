@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="40" viewBox="0 0 180 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&amp;display=swap');
+    .logo-text { 
+      font-family: 'Fira Code', monospace; 
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: -0.5px;
+    }
+  </style>
+  <g fill="none" fill-rule="evenodd">
+    <text x="10" y="26" class="logo-text" fill="#FFFFFF" font-size="22">
+      code/asap.it
+    </text>
+  </g>
+</svg>
