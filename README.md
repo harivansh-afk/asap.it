@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/68617bd2-76f8-4587-8472-7158db2233f5)
+![image](docs/assets/asap-it-overview.png)
 
 # asap.it
 
